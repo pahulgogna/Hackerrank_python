@@ -1,14 +1,20 @@
 if __name__ == '__main__':
     n = int(input())
-    arr = input().split()
+    arr = [int(i) for i in input().split()]
     
-    greatest = arr[0]
-    second_greatest = 0
-    for i in arr:
-        if i > greatest:
-            second_greatest = greatest
-            greatest = i
-        elif int(second_greatest) < int(i) and i != greatest:
-            second_greatest = i 
-    print(second_greatest)
-    # print(greatest)
+    g1 = arr[0]
+    
+    for i in range(len(arr)):
+        if arr[i] >= g1:
+            g1 = arr[i]
+
+    n = [i for i in arr if i != g1]
+
+    g2 = n[0]
+
+    for i in range(len(n)):
+        if n[i] >= g2:
+            g2 = n[i]
+
+    print(g2)
+        
