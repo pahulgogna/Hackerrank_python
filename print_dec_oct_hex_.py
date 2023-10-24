@@ -3,7 +3,7 @@
 def print_formatted(number):
     # your code goes here
     string = ''
-    longest = len(str(bin(number))) # spacing between numbers in str
+    longest = len(str(bin(number))[2:]) # spacing between numbers in str
     num_length = len(str(number))
     spacing = ''
     
@@ -16,12 +16,11 @@ def print_formatted(number):
                 to_print = str(oct(i,))[2:]
             elif j == 2:
                 to_print = str(hex(i,))[2:]
-                if to_print in 'abcdef':
+                if to_print[-1] in 'abcdef':
                     to_print = to_print.upper()
             elif j == 3:
                 to_print = str(bin(i,))[2:]
-            
-            req = longest - len(to_print) - 2
+            req = longest - len(to_print)
             for _ in range(req):
                 spacing += ' '
             string = string + spacing + ' ' + to_print
